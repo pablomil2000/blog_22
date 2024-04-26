@@ -1,23 +1,25 @@
-# blog_22
+<h1 align="center" id="title">Clean Blog</h1>
 
-Este proyecto es un ejemplo del desarrollo de un sitio web de blog siguiendo la estructura de MVC.
+<p align="center"><img src="https://socialify.git.ci/pablomil2000/blog_22/image?language=1&amp;owner=1&amp;name=1&amp;stargazers=1&amp;theme=Light" alt="project-image"></p>
 
-Este blog cuenta con login, dentro de este los usuarios se podrán identificar como usuario o como administrador.
+<p id="description">Creación de un blog simple con PHP MySQL y Javascript</p>
 
-Los usuarios serán redirigidos a la página de inicio y podrán seguir navegando por el sitio web con normalidad.
+<h2>Project Screenshots:</h2>
 
-Los usuarios administradores serán redirigidos a la página al panel de administración. Este panel está basado en adminLTE 3.2.0.
+<img src="https://i.imgur.com/9R890Ik.png" alt="project-screenshot" width="100%" height="400/">
 
-Dentro de este panel tienen la opción de crear nuevos posts que se verán en la página inicial del blog.
+  
+  
+<h2>💻 Built with</h2>
 
-Todos los posts tienen:
+Technologies used in the project:
 
-1. id - int - autoincrement
+*   php
+*   MySql
+*   Javascript
+*   Css
+*   html
 
-1. Título – Varchar(250) - Es el texto que se usara como título para mostrar en el post
+<h2>🛡️ License:</h2>
 
-1. Texto - text - El contenido del post, se puede editar utilizando el plugin de summernote para mejorar el formato de la publicación
-
-1. fecha - timestamp - fecha y hora a la que se creó el post
-
-1. autor - int - id del usuario que ha creado el post
+This project is licensed under the MIT
