@@ -1,7 +1,5 @@
 <?php
 
-Funciones::isGuest();
-
 $user = new UserCtrl('Users');
 $tiene_rol = new tiene_rolCtrl('tienen_roles');
 $roles = new RolCtrl('Roles');
@@ -14,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($login) {
 
-        $_SESSION['user'] = $login[0]['id'];
 
         $misRoles = $tiene_rol->getById(array('user_id' => $login[0]['id']));
 
+        $_SESSION['user'] = $login[0]['id'];
         if (!empty($misRoles)) {
             $_SESSION['rol'] = $misRoles[0]['rol_id'];
         }
@@ -26,4 +24,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-include('views/partials/login.view.php');
+include ('views/partials/login.view.php');

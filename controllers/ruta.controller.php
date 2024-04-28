@@ -2,9 +2,8 @@
 
 class RutaCtrl
 {
-    static public function url()
+    static public function url($params = "")
     {
-
-        return "http://localhost/dwese/T4/hotel/hotel5.0/";
+        return "http://localhost/blog_22/" . $params;
     }
 }

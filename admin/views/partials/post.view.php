@@ -1,90 +1,15 @@
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Usuarios</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Usuarios</li>
-                    </ol>
-                </div>
-            </div>
-        </div><!-- /.container-fluid -->
-    </section>
+<div class="container-fluid pt-4 px-4">
+  <div class="bg-secondary text-center rounded p-4">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <h6 class="mb-0"><?= $post[0]['titulo'] ?></h6>
 
-    <!-- Main content -->
-    <section class="content">
-
-        <!-- Default box -->
-        <div class="card">
-            <div class="card-head">
-                <a href="newPost" class="btn btn-primary">newPost</a>
-            </div>
-            <div class="card-body">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Titulo</th>
-                            <th>texto</th>
-                            <th>fecha</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($posts as $key => $row) {
-
-                        ?>
-                            <tr>
-                                <td scope="row"><?= $row['id'] ?></td>
-                                <td><?= $row['titulo'] ?></td>
-                                <td><?= $row['texto'] ?></td>
-                                <td><?= Funciones::dateFormat($row['fecha']) ?></td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-
-                    </tbody>
-                </table>
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer">
-                <!-- Footer -->
-            </div>
-            <!-- /.card-footer-->
-        </div>
-        <!-- /.card -->
-
-    </section>
-    <!-- /.content -->
-</div>
-
-
-<!-- Ventana modal con el formulario de alta -->
-<div class="modal fade" id="modalAlta">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header bg-primary">
-                <h4 class="modal-title">Añadir usuarios</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                El formulario de nuevo usuario
-            </div>
-            <div class="modal-footer ">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar </button>
-                <button type="button" class="btn btn-primary">Guardar Usuario</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
+      <a href="<?= RutaCtrl::url('posts') ?>" class="btn btn-sm btn-primary">
+        <i class="fas fa-arrow-left"></i>
+        Volver
+      </a>
     </div>
-    <!-- /.modal-dialog -->
+    <div class="table-responsive">
+      <?= $post[0]['texto'] ?>
+    </div>
+  </div>
 </div>
-<!-- /.modal -->

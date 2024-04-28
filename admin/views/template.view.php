@@ -1,24 +1,30 @@
-<!-- Header start -->
-<?php include('views/modules/cabecera.php'); ?>
-<!-- Header end -->
-
-<!-- Site wrapper -->
+<!-- Hero Section Begin -->
 <?php
-// var_dump($_SESSION);
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] != '1') {
+  Funciones::JsRedirect('../');
+  // var_dump($_SESSION);
+}
 
-
-include('views/modules/menu.php');
-
-//<!-- Content start -->
-PlantillaCtr::whiteList(array('logout'), true, array('usuarios', 'post', 'newPost'));
+include ('modules/head.php');
+include ('modules/header.php');
 ?>
-<!-- Content end -->
+<!-- Header End -->
 
-<!-- footer start -->
 <?php
+//Controlador de navegacion
+$ruta = 'home';
 
-include('views/modules/footer.php');
+// require_once('views/modules/' . $ruta . '.php');
 
+PlantillaCtr::whiteList(
+  'home',
+  'posts',
+  'logout'
+);
 ?>
 
-<!-- footer end -->
+<!-- Footer Section Begin -->
+<?php
+include ('modules/footer.php');
+?>
+<!-- Footer End -->

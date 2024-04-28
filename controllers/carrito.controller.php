@@ -24,7 +24,7 @@ class Carrito extends CrudCtrl
         $valores = "(" . implode(",", $claves) . ")";
 
         if (!empty($claves)) {
-            $resultado = $this->getByField($this->tabla, $valores, 'isbn');
+            $resultado = $this->getByField($valores, 'id');
             return $resultado;
         }
 
@@ -38,8 +38,8 @@ class Carrito extends CrudCtrl
             $datos['total'] = 0;    //Importe
             $datos['NumArticulos'] = 0; //NUmero de articulos diferentes iguales o distintes
             foreach ($carro as $producto) {
-                $datos['NumArticulos'] += $carrito[$producto['isbn']];
-                $datos['total'] += $producto['precio'] * $carrito[$producto['isbn']];
+                $datos['NumArticulos'] += $carrito[$producto['id']];
+                $datos['total'] += $producto['precio'] * $carrito[$producto['id']];
             }
             $datos['numProducts'] = count($carrito);    //Numero de articuos diferentes
             return $datos;

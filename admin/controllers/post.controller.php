@@ -1,5 +1,6 @@
 <?php
 
-class PostCtrl extends crudCtrl
+class PostCtrl extends CrudCtrl
 {
+
 }

@@ -9,11 +9,14 @@ class Pagination extends CrudCtrl
     private $numProductos;
 
 
-    //TODO: Metodo para validar la pagina 2.0
-
-
-
-
+    /**
+     * Class constructor for the PaginationController.
+     *
+     * @param string $tabla The table name.
+     * @param int $porPag The number of items per page.
+     * @param int $page The current page number.
+     * @param array $datos The data array.
+     */
     public function __construct($tabla, $porPag, $page, $datos = array())
     {
         $this->tabla = $tabla;
@@ -23,9 +26,15 @@ class Pagination extends CrudCtrl
         $this->numProductos = count($this->getById($datos));
         $this->numPages = (int) ceil(intval($this->numProductos) / intval($this->porPag));
         $this->page = $this->vlt_Page($page);
-        // var_dump($this);
     }
 
+
+    /**
+     * Validates the given page number and returns a valid page number.
+     *
+     * @param int $page The page number to validate.
+     * @return int The validated page number.
+     */
     private function vlt_Page($page)
     {
         if ($page < 0) {
@@ -38,6 +47,11 @@ class Pagination extends CrudCtrl
         return $page;
     }
 
+    /**
+     * Returns the limit clause for pagination.
+     *
+     * @return string The limit clause for pagination.
+     */
     public function getLimit()
     {
         $productoInicio = $this->page * $this->porPag;
@@ -46,11 +60,22 @@ class Pagination extends CrudCtrl
         return $limit;
     }
 
+    /**
+     * Magic method to get the value of a property dynamically.
+     *
+     * @param string $name The name of the property to get.
+     * @return mixed The value of the property.
+     */
     public function __get($name)
     {
         return $this->$name;
     }
 
+    /**
+     * Returns the previous page number.
+     *
+     * @return int The previous page number.
+     */
     public function previus()
     {
         if ($this->page == 0) {
@@ -60,6 +85,11 @@ class Pagination extends CrudCtrl
         return $this->page;
     }
 
+    /**
+     * Calculates the next page number based on the current page and the total number of pages.
+     *
+     * @return int The next page number.
+     */
     public function next()
     {
         if ($this->page + 2 > $this->numPages) {

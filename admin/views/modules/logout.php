@@ -1,4 +1,6 @@
 <?php
-session_destroy();
 
-include('views/partials/logout.view.php');
+// logout
+session_destroy();
+Funciones::JsRedirect('../');
+exit;

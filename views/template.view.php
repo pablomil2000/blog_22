@@ -1,19 +1,30 @@
-<?php include('views/modules/head.php'); ?>
+<!-- Hero Section Begin -->
+<?php
+include ('modules/head.php');
+include ('modules/header.php');
+?>
+<!-- Header End -->
 
-<body>
-    <!-- Navigation-->
-    <?php include('views/modules/navbar.php'); ?>
-    <!-- Page Header-->
-    <?php include('views/modules/header.php'); ?>
-    <!-- Main Content-->
-    <?php PlantillaCtr::whiteList(array('login'), true, array('rolSelect', 'logout', 'post')); ?>
+<?php
+//Controlador de navegacion
+$ruta = 'home';
 
-    <!-- Footer-->
-    <?php include('views/modules/footer.php'); ?>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="views/js/scripts.js"></script>
-</body>
+// require_once('views/modules/' . $ruta . '.php');
 
-</html>
+PlantillaCtr::whiteList(
+  'home',
+  'login',
+  'logout',
+  'rolSelect',
+  'post'
+);
+?>
+
+<!-- Footer Section Begin -->
+<?php
+include ('modules/footer.php');
+?>
+<!-- Footer End -->
+
+
+<?php include ('views/modules/head.php'); ?>

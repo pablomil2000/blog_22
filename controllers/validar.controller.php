@@ -4,9 +4,12 @@ class Validar
 {
     static public function vlt_String($str)
     {
-        if ($str != '') {
-            $str = trim(htmlspecialchars(filter_var($str, FILTER_SANITIZE_STRING)));
-            return $str;
+        if (preg_match('/^[a-zA-Z0-9]*$/', $str)) {
+            if ($str != '') {
+                error_reporting(E_ERROR | E_PARSE);
+                $str = trim(htmlspecialchars(filter_var($str, FILTER_SANITIZE_STRING)));
+                return $str;
+            }
         }
         return false;
     }
@@ -28,6 +31,14 @@ class Validar
                 return $int;
             }
         }
+        return false;
+    }
+    static public function vlt_checkBox($post_Name)
+    {
+        if (isset($_POST[$post_Name])) {
+            return true;
+        }
+
         return false;
     }
 }

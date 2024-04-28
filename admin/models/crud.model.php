@@ -58,7 +58,6 @@ class CrudMdl
     static public function insert($tabla, $campos, $datos)
     {
         $c = Conexion::conectar();
-        $tabla = $tabla;
 
         $sql = "INSERT INTO $tabla ";
         $fields = implode(', ', $campos);
@@ -82,7 +81,6 @@ class CrudMdl
         $c = Conexion::conectar();
         $sql = "UPDATE $tabla SET ";
 
-
         foreach ($datos as $campo => $value) {
             $sql .= "$campo = '$value', ";
         }
@@ -96,13 +94,16 @@ class CrudMdl
     static public function delete($tabla, $datos)
     {
         $c = Conexion::conectar();
-        $sql = "DELETE FROM $tabla WHERE id in ($datos)";     //? PDO no me deja pasarlo los parametros entre parentesis?
-        // var_dump($datos);
+        $sql = "DELETE FROM $tabla WHERE id in ($datos)";
         $stmt = $c->prepare($sql);
-        // var_dump($sql);
-        // var_dump($datos);
-        // $stmt->bindValue(':datos', $datos);
         $stmt->execute();
         return $stmt->rowCount();
+    }
+
+    static public function raw($sql)
+    {
+        $c = Conexion::conectar();
+        $query = $c->query($sql);
+        return $query;
     }
 }

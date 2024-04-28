@@ -1,11 +1,17 @@
 <?php
 
-$Posts = new PostCtrl('posts');
+$PostCtrl = new PostCtrl('posts');
+$UserCtrl = new UserCtrl('users');
 
-if (isset($_GET['post'])) {
-    $id = Validar::vlt_Int($_GET['post']);
-    $post = $Posts->getById(array('id' => $id));
-    include('views/partials/post.view.php');
-} else {
-    include('views/partials/404.view.php');
+
+$url = explode("/", $_GET["url"]);
+$goto = '404';
+
+if (isset($url[1]) && $url[1] != '') {
+    $goto = 'post';
+    $post = $PostCtrl->getById(array('slug' => $url[1]));
+
 }
+
+
+include 'views/partials/' . $goto . '.view.php';

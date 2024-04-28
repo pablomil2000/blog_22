@@ -7,29 +7,23 @@ class PlantillaCtr
         require_once('views/template.view.php');
     }
 
-    static public function whiteList($validas1 = array(), $privadas = false, $validas2 = array())
+    static public function whiteList(...$validas)
     {
 
-        $redirect = 'home';
-        $validas1[] = 'home';
-
-        if (isset($_GET['ruta'])) {
-            $ruta = Validar::vlt_String($_GET['ruta']);
-
-            if (in_array($ruta, $validas1)) {
-                $redirect = $ruta;
-            } elseif ($privadas) {
-                if (in_array($ruta, $validas2)) {
-                    $redirect = $ruta;
-                } else {
-                    $redirect = 404;
-                }
-            } else {
-                $redirect = 404;
-            }
+        if (isset($_GET['url'])) {
+            $url = explode("/", $_GET["url"]);
+        } else {
+            $url[] = 'home';
         }
 
+        if (in_array($url[0], $validas)) {
+            $redirect = $url[0];
+        } else {
+            $redirect = 404;
+        }
+        // var_dump($url);
+
         require_once('views/modules/' . $redirect . '.php');
-        return $ruta;
+        return $url;
     }
 }

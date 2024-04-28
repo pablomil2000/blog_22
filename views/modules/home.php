@@ -17,4 +17,4 @@ $limit = $PaginacionPost->getLimit();
 $posts = $Posts->rawSql('', '', $limit);
 
 
-include('views/partials/home.view.php');
+include ('views/partials/home.view.php');
