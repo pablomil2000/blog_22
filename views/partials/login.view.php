@@ -17,37 +17,11 @@
             <!-- 2 column grid layout for inline styling -->
             <div class="row mb-4">
                 <div class="col d-flex justify-content-center">
-                    <button type="button" class="btn btn-primary btn-block mb-4" onclick="submit()">Sign in</button>
+                    <button type="button" class="btn btn-primary btn-block mb-4" onclick="submit()">Entrar</button>
 
                 </div>
 
-                <div class="col">
-                    <!-- Simple link -->
-                    <a href="#!">Forgot password?</a>
-                </div>
-            </div>
 
-            <!-- Submit button -->
-
-            <!-- Register buttons -->
-            <div class="text-center">
-                <p>Not a member? <a href="registro">Register</a></p>
-                <p>or sign up with:</p>
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-facebook-f"></i>
-                </button>
-
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-google"></i>
-                </button>
-
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-twitter"></i>
-                </button>
-
-                <button type="button" class="btn btn-link btn-floating mx-1">
-                    <i class="fab fa-github"></i>
-                </button>
             </div>
         </form>
     </div>

@@ -10,9 +10,9 @@
                         <h2 class="post-title"><?= $post['titulo'] ?></h2>
                     </a>
                     <p class="post-meta">
-                        Posted by
+                        Publicado por
                         <a href="#!"><?= $Users->getById(array('id' => $post['autor']))[0]['nombre'] ?></a>
-                        on <?= Funciones::dateFormat($post['fecha'], 'M d, Y') ?>
+                        el <?= Funciones::dateFormat($post['fecha'], 'M d, Y') ?>
                     </p>
                 </div>
                 <!-- Divider-->

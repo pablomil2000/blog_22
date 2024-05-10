@@ -13,9 +13,9 @@
                 </p>
                 <p class="post-meta d-flex justify-content-around">
                     <span>
-                        Posted by
+                        Publicado por
                         <a href="#!"><?= $UserCtrl->getById(array('id' => $post[0]['autor']))[0]['nombre'] ?></a>
-                        on <?= Funciones::dateFormat($post[0]['fecha'], 'M d, Y') ?>
+                        el <?= Funciones::dateFormat($post[0]['fecha'], 'M d, Y') ?>
                     </span>
                     <a href="<?= RutaCtrl::url() ?>" class="btn btn-primary">volver</a>
                 </p>

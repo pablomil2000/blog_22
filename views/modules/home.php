@@ -1,4 +1,7 @@
 <?php
+
+$title = 'Blog Pablo Martín López';
+
 $MAXIMO_PALABRAS = 9;
 $Posts = new PostCtrl('posts');
 $Users = new UserCtrl('users');
