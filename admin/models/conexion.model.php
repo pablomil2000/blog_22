@@ -1,18 +1,22 @@
 <?php
 
+
 class Conexion
 {
     static public function conectar()
     {
+        $env = parse_ini_file('../.env');
+
         $bdTypee = 'MySQL';
 
         switch ($bdTypee) {
             case 'MySQL':
 
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "blog";
+                $servername = $env["BDservername"];
+                ;
+                $username = $env["BDusername"];
+                $password = $env["BDpassword"];
+                $dbname = $env["BDname"];
 
                 $conexion = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                 $conexion->exec("set names utf8");

@@ -4,6 +4,8 @@ class RutaCtrl
 {
     static public function url($params = "")
     {
-        return "http://localhost/blog_22/" . $params;
+        $env = parse_ini_file('.env');
+
+        return $env['DOMAIN'] . $params;
     }
 }
