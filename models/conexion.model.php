@@ -13,7 +13,6 @@ class Conexion
             case 'MySQL':
 
                 $servername = $env["BDservername"];
-                ;
                 $username = $env["BDusername"];
                 $password = $env["BDpassword"];
                 $dbname = $env["BDname"];
